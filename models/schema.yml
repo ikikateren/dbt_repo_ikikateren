@@ -49,3 +49,159 @@ sources:
             description: "Internal logistics cost incurred to prepare and handle the order."
           - name: ship_cost
             description: "Total shipping cost paid by the company, converted to a numeric value in the staging layer."
+
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: "Google Ads (AdWords) platformundan gelen ham reklam performans verilerini içerir. Kampanya bazında maliyet, gösterim ve tıklama metrikleri kaynak sistemden alındığı şekliyle tutulur."
+        columns:
+          - name: date_date
+            description: "Raporlanan günün tarihi (genellikle kampanya performansının günü), YYYY-MM-DD formatında."
+            tests:
+              - not_null
+
+          - name: paid_source
+            description: "Reklam kaynağını belirtir. Bu tablo için genellikle 'adwords' değeri beklenir."
+            tests:
+              - not_null
+
+          - name: campaign_key
+            description: "Kampanyayı benzersiz olarak tanımlayan anahtar/id. Farklı platformlar arası kampanya eşleştirmesinde kullanılır."
+            tests:
+              - not_null
+
+          - name: campgn_name
+            description: "Kaynak sistemde tanımlı kampanya adı (kampanya ismi)."
+            tests:
+              - not_null
+
+          - name: ads_cost
+            description: "İlgili tarih ve kampanya için harcanan reklam maliyeti (para birimi: genellikle yerel para birimi veya hesabın varsayılan para birimi)."
+            tests:
+              - not_null
+
+          - name: impression
+            description: "İlgili tarih ve kampanya için gösterim (impression) sayısı."
+            tests:
+              - not_null
+
+          - name: click
+            description: "İlgili tarih ve kampanya için tıklama (click) sayısı. Kaynak sistemdeki ham değerdir."
+            tests:
+              - not_null
+
+      - name: bing
+        identifier: raw_gz_bing
+        description: "Microsoft Bing Ads platformundan gelen ham reklam verilerini içerir. Kampanya bazlı maliyet, gösterim ve tıklama metrikleri işlenmeden bu tabloda saklanır."
+        columns:
+          - name: date_date
+            description: "Raporlanan günün tarihi (kampanya performans günü), YYYY-MM-DD formatında."
+            tests:
+              - not_null
+
+          - name: paid_source
+            description: "Reklam kaynağını belirtir. Bu tablo için genellikle 'bing' değeri beklenir."
+            tests:
+              - not_null
+
+          - name: campaign_key
+            description: "Bing kampanyasını benzersiz olarak tanımlayan anahtar/id."
+            tests:
+              - not_null
+
+          - name: campgn_name
+            description: "Bing Ads üzerinde kayıtlı kampanya adı."
+            tests:
+              - not_null
+
+          - name: ads_cost
+            description: "İlgili tarih ve kampanya için oluşan reklam maliyeti."
+            tests:
+              - not_null
+
+          - name: impression
+            description: "Bing kampanyasının ilgili gündeki gösterim (impression) sayısı."
+            tests:
+              - not_null
+
+          - name: click
+            description: "Bing kampanyasının ilgili gündeki tıklama (click) sayısı."
+            tests:
+              - not_null
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: "Criteo remarketing platformundan gelen ham kampanya performans verilerini içerir. Gösterim, tıklama ve maliyet metrikleri bu tabloda tutulur."
+        columns:
+          - name: date_date
+            description: "Criteo performans verisinin ait olduğu tarih (YYYY-MM-DD)."
+            tests:
+              - not_null
+
+          - name: paid_source
+            description: "Reklam kaynağını belirtir. Bu tablo için genellikle 'criteo' değeri beklenir."
+            tests:
+              - not_null
+
+          - name: campaign_key
+            description: "Criteo kampanyasını benzersiz tanımlayan id/anahtar."
+            tests:
+              - not_null
+
+          - name: campgn_name
+            description: "Criteo platformunda görünen kampanya adı."
+            tests:
+              - not_null
+
+          - name: ads_cost
+            description: "İlgili tarih ve kampanya için oluşan reklam maliyeti."
+            tests:
+              - not_null
+
+          - name: impression
+            description: "Criteo kampanyasının ilgili gündeki gösterim sayısı."
+            tests:
+              - not_null
+
+          - name: click
+            description: "Criteo kampanyasının ilgili gündeki tıklama sayısı."
+            tests:
+              - not_null
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: "Meta (Facebook/Instagram) Ads yöneticisinden gelen ham reklam performans verilerini içerir. Kampanya bazında maliyet, gösterim ve tıklama metriklerini içerir."
+        columns:
+          - name: date_date
+            description: "Facebook/Instagram kampanya performansının ait olduğu tarih (YYYY-MM-DD)."
+            tests:
+              - not_null
+
+          - name: paid_source
+            description: "Reklam kaynağını belirtir. Bu tablo için genellikle 'facebook' veya 'meta' değeri beklenir."
+            tests:
+              - not_null
+
+          - name: campaign_key
+            description: "Meta kampanyasını benzersiz tanımlayan id/anahtar."
+            tests:
+              - not_null
+
+          - name: campgn_name
+            description: "Meta Ads Manager'da görünen kampanya adı."
+            tests:
+              - not_null
+
+          - name: ads_cost
+            description: "İlgili tarih ve kampanya için oluşan reklam harcaması."
+            tests:
+              - not_null
+
+          - name: impression
+            description: "Facebook/Instagram kampanyasının ilgili gündeki gösterim sayısı."
+            tests:
+              - not_null
+
+          - name: click
+            description: "Facebook/Instagram kampanyasının ilgili gündeki tıklama sayısı."
+            tests:
+              - not_null      

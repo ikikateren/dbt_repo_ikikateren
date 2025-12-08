@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: finance_campaigns_day
+    description: "Satış finans verileri ile reklam metriklerinin gün bazında birleştirildiği model."
+    columns:
+      - name: date_date
+        description: "Gün bilgisi."
+        tests:
+          - not_null
+          - unique
+
+      - name: ads_margin
+        description: "Reklam dahil total marj"
+
+      - name: average_basket
+        description: "Ortalama günlük sepet tutarı"
+
+      - name: revenue
+        description: "Günlük toplam ciro."
+
+      - name: quantity
+        description: "Günlük satılan toplam ürün sayısı"        
+
+      - name: margin
+        description: "Günlük brüt marj."
+
+      - name: operational_margin
+        description: "Lojistik dahil operasyonel marj."
+
+      - name: ads_cost
+        description: "Reklam maliyeti (tüm platformlardan)."
+
+      - name: impression
+        description: "Gösterim sayısı."
+
+      - name: click
+        description: "Tıklama sayısı."
+
+      - name: shipping_fee
+        description: "Shipping fee charged to the customer for this order."
+
+      - name: log_cost
+        description: "Internal logistics cost incurred to prepare and handle the order."
+        
+      - name: ship_cost
+        description: "Total shipping cost paid by the company, converted to a numeric value in the staging layer."

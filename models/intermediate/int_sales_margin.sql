@@ -1,11 +1,11 @@
 with sales AS (
     SELECT *
-    FROM {{ ref('stg_raw__sales') }}
+    FROM {{ ref("stg_raw__sales") }}
 ),
 
 product AS (
     SELECT * 
-    FROM {{ ref('stg_raw__product') }}
+    FROM {{ ref("stg_raw__product") }}
 ),
 
 joined AS (
